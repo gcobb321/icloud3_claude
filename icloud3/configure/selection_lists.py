@@ -144,10 +144,7 @@ def _build_aa_auth_text_line(self, AppleAcct, conf_apple_acct):
     build_aa_auth_methods_list(self, AppleAcct)
 
     aa_text = ''
-    # aa_auth_methods = conf_apple_acct[CONF_AUTH_METHODS]
-    # reauth_method = aa_auth_methods[CONF_LAST_METHOD]
-    # reauth_method = AppleAcct.reauth_method
-    aa_text += f"{self.aa_auth_methods_by_auth_method[AppleAcct.reauth_method]}"
+    aa_text += f"{self.aa_auth_methods_by_auth_method[AppleAcct.auth_method]}"
     if AppleAcct.is_auth_code_needed:
         aa_text = aa_text.split('> ')[0]
         aa_text += f"> {RED_ALERT}AUTH NEEDED"
